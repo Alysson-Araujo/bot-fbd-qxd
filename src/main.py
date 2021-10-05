@@ -40,5 +40,8 @@ async def notificar_video(ctx):
     break
     
     
+# Aqui criamos um loop restrito apenas ao "anuncio", ou seja, não interfere nas outras tarefas
+
+client.loop.create_task(anuncio())
 
 client.run('ODk0NDA0MjQ4MTg2NTI3ODI0.YVpg3Q.qH6lwaXZ3D0aWtf_Pjzy0Wz8mu8')
