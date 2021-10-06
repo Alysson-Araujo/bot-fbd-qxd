@@ -1,6 +1,12 @@
 import discord, random, time, asyncio
-from discord.ext import commands
 
+import os
+from dotenv import load_dotenv
+
+from discord.ext import commands
+import keep_alive
+
+#client = discord.Client()
 client = commands.Bot(command_prefix = ">", case_insensitive = True)
 
 @client.event
@@ -42,6 +48,10 @@ async def notificar_video(ctx):
     
 # Aqui criamos um loop restrito apenas ao "anuncio", ou seja, não interfere nas outras tarefas
 
-client.loop.create_task(anuncio())
+#client.loop.create_task(anuncio())
 
-client.run('ODk0NDA0MjQ4MTg2NTI3ODI0.YVpg3Q.qH6lwaXZ3D0aWtf_Pjzy0Wz8mu8')
+load_dotenv()
+client.run(os.getenv('TOKEN'))
+
+
+keep_alive.keep_alive()
